@@ -1,0 +1,90 @@
+<div class="bodyDiv">
+  <div class="signup-form ">
+      <form [formGroup]="signUpForm">
+          <h2>Sign Up</h2>
+          <p>Please fill in this form to create an account!</p>
+          <hr>
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">
+                          <span class="fa fa-user"></span>
+                      </span>                    
+                  </div>
+                  <input type="text" class="form-control" placeholder="First Name" formControlName="firstName">
+              </div>
+              <!-- <div class="error " *ngIf="signUpForm.get( 'firstName').hasError( 'required') && signUpForm.get( 'firstName').touched ">*User name is required</div>
+              <div class="error " *ngIf="signUpForm.get( 'firstName').hasError( 'pattern') ">Enter valid first name.</div> -->
+          </div>
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">
+                          <span class="fa fa-user"></span>
+                      </span>                    
+                  </div>
+                  <input type="text" class="form-control"  placeholder="LastName" formControlName="lastName">
+              </div>
+              <!-- <div class="error " *ngIf="signUpForm.get( 'lastName').hasError( 'required') && signUpForm.get( 'lastName').touched ">*User name is required</div>
+              <div class="error " *ngIf="signUpForm.get( 'lastName').hasError( 'pattern') ">Enter valid last name.</div> -->
+          </div>
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">
+                          <i class="fa fa-envelope"></i>
+                      </span>                    
+                  </div>
+                  <input type="email" class="form-control" placeholder="Email Address" formControlName="userEmail">
+              </div>
+              <!-- <div class="error " *ngIf="signUpForm.get( 'userEmail').hasError( 'required') && signUpForm.get( 'userEmail').touched ">*Email is required.</div>
+              <div class="error " *ngIf="signUpForm.get( 'userEmail').hasError( 'pattern') ">Enter valid email.</div> -->
+          </div>
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">
+                          <i class="fa fa-phone"></i>
+                      </span>                    
+                  </div>
+                  <input type="password" class="form-control"  placeholder="Mobile Number" formControlName="mobileNumber">
+              </div>
+              <!-- <div class="error " *ngIf="signUpForm.get( 'mobileNumber').hasError( 'pattern') ">Enter Valid indian mobile number.</div>
+              <div class="error" *ngIf="signUpForm.get('mobileNumber').hasError('required') && signUpForm.get('mobileNumber').touched">*required.</div> -->
+          </div>
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">
+                          <i class="fa fa-lock"></i>
+                      </span>                    
+                  </div>
+                  <input type="password" class="form-control"  placeholder="Password" formControlName="password">
+              </div>
+              <!-- <div class="error " *ngIf="signUpForm.get( 'password').hasError( 'pattern') ">Password must be atleast 8 characters with <br> one uppercase , lowercase,symbol and number.</div>
+              <div class="error" *ngIf="signUpForm.get('password').hasError('required') && signUpForm.get('password').touched">*required.</div> -->
+          </div>
+         
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">
+                          <i class="fa fa-lock"></i>
+                          <i class="fa fa-check"></i>
+                      </span>                    
+                  </div>
+                  <input type="password" class="form-control"  placeholder="Confirm Password"formControlName="confirmPassword">
+              </div>
+              <!-- <div class="error " *ngIf="signUpForm.get( 'confirmPassword').hasError( 'required') && signUpForm.get( 'confirmPassword').touched ">Confirm Password is required</div>
+              <div class="error " *ngIf="(signUpForm.get( 'password').value) !==( signUpForm.get( 'confirmPassword').value) && signUpForm.get( 'confirmPassword').dirty ">Password and confirmpassword missmatch.</div> -->
+          </div>
+          <div class="form-group">
+              <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a >Privacy Policy</a></label>
+          </div>
+          <div class="form-group">
+              <button [disabled]="signUpForm.invalid" (click)="signUpFormSubmit()" class="btn btn-primary btn-lg">Sign Up</button>
+          </div>
+      </form>
+      <div class="text-center">Already have an account? <a routerLink="/login" routerLinkActive="activebutton">Login here</a></div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+.mat-grid-list{
+    /* height: 100%S; */
+    /* position: fixed; */
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #1c3781;
+   padding-bottom: 10px;
+   padding-top: 5px;
+
+}
+mat-grid-tile {
+    color: rgb(233, 239, 241);
+  }
+
+  .mat-grid-tile-content{
+    display: grid;
+    padding-bottom: 0px;
+  }
+  .mat-grid-tile-content h4{
+    color: rgb(240, 194, 70);
+  }
+  .button{
+    color: white;
+    /* background-color: #3f51b5; */
+    margin-right: 2px;
+  }
+  .social-icon{
+   float: left;
+   margin-right: 5px;
+   padding-top: 5px;
+  }
+  /* example-card {
+    max-width: 400px;
+    
+  } */
+  mat-card{
+    background: #fff0;
+    color: rgba(168, 161, 161, 0.658);
+  }
+  .mat-card-image{
+    height: 79px;
+    width: 180px;
+    margin-left: 2px;
+  }
+  

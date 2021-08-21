@@ -1,0 +1,30 @@
+<h1 style="text-align: center;">QUIZ TECH BY ANGULAR</h1>
+<h3 style="text-align: center;">Your Current score is <b style="color: Green;">{{totalScore}}</b> </h3>
+<div class="container">
+    <div>
+        <div class="row" >
+            <div class="col-md-10" *ngFor="let data of quiz | paginate: { itemsPerPage: 1, currentPage: p } ;let i = index;">
+                <p class="question">Q.{{1*(p-1)+i+1}}  {{data.question}} </p>
+                <div class="row">
+                    <button class="col-md-4" style="background-color: {{colorA}}" [disabled] = "flip" (click)="ansClicked(data.correct_answers.answer_a_correct ,'A',data.id )">A. {{data.answers.answer_a}}</button>
+                    <button class="col-md-4" style="background-color: {{colorB}}" [disabled] = "flip" (click)="ansClicked(data.correct_answers.answer_b_correct , 'B',data.id)">B. {{data.answers.answer_b}}</button>
+                </div>
+                <div class="row">
+                    <button class="col-md-4"  style="background-color: {{colorC}}" [disabled] = "flip" (click)="ansClicked(data.correct_answers.answer_c_correct , 'C',data.id )">C. {{data.answers.answer_c}}</button>
+                    <button class="col-md-4" style="background-color: {{colorD}}" [disabled] = "flip" (click)="ansClicked(data.correct_answers.answer_d_correct , 'D',data.id )">D. {{data.answers.answer_d}}</button>
+                </div>
+               
+            </div>
+            <div class="col-md-2">
+               
+                 </div>
+            <div class="row pagination">
+              
+                    <button  (click)="paginate()">Next Question</button>
+            </div>
+           
+            
+        </div>
+    </div>
+
+</div>
