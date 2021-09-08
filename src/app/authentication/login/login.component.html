@@ -1,0 +1,119 @@
+<div class="bodyDiv">
+    <div class="login-form ">
+        <form [formGroup]="loginForm">
+            <h2>Login</h2>
+            <p>Please fill in this form to login to your account!</p>
+            <hr>
+           
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-envelope"></i>
+                        </span>                    
+                    </div>
+                    <input type="email" class="form-control"  placeholder="Email Address" formControlName="userEmail"><br>
+                   
+                </div>
+                <div class="error " *ngIf="loginForm.get( 'userEmail').hasError( 'required') && loginForm.get( 'userEmail').touched ">*Email is required.</div>
+                <div class="error " *ngIf="loginForm.get( 'userEmail').hasError( 'pattern') ">Enter valid email.</div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-lock"></i>
+                        </span>                    
+                    </div>
+                    <input type="password" class="form-control"  placeholder="Password" formControlName="password"><br>
+                </div>
+                    <div class="error" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">*required.</div>
+            </div>
+            
+            <div class="form-group loginButton">
+                <button [disabled]="loginForm.invalid" (click)="onLogin()" class="btn btn-primary btn-lg" >Login</button>
+            </div>
+            <div class="form-group">
+                <label class="trigger-btn"> <a  (click)="forgetPasswordmodal()" class="trigger-btn">Forget password</a> or <a  class="trigger-btn" (click)="resetPasswordModal()">Reset password</a></label>
+            </div>
+        </form>
+        <div class="text-center">New usert? <a routerLink="/sign-up" routerLinkActive="activebutton">Sign up here</a></div>
+    </div>
+    <!-- verify modal starts from here -->
+    <div id="emailVerifyModal" class="modal fade">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Verify Email</h4>	
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="emailVerify">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-envelope"></i>
+                                    </span>                    
+                                </div>
+                                <input type="email" class="form-control"  placeholder="Enter user email" formControlName="userEmail"><br>
+                            </div>
+                            <div class="error " *ngIf="emailVerify.get( 'userEmail').hasError( 'required') && emailVerify.get( 'userEmail').touched ">*Email is required.</div>
+                        </div>
+                 
+                        <div class="form-group">
+                            <button [disabled]="emailVerify.invalid" (click)="verifyEmail()" class="btn btn-primary btn-lg btn-block login-btn">Verify</button>
+                        </div>
+                    </form>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+        <!-- reset-password modal starts from here -->
+        <div id="resetPasswordModal" class="modal fade">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div class="modal-header">
+				
+                    <h4 class="modal-title"> Reset Password</h4>	
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="resetPassword">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-lock"></i>
+                                    </span>                    
+                                </div>
+                                <input type="password" class="form-control"  placeholder="Password" formControlName="password">
+                            </div>
+                            <div class="error " *ngIf="resetPassword.get( 'password').hasError( 'pattern') ">Password must be atleast 8 characters with <br> one uppercase , lowercase,symbol and number.</div>
+                            <div class="error" *ngIf="resetPassword.get('password').hasError('required') && resetPassword.get('password').touched">*required.</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-lock"></i>
+                                        <i class="fa fa-check"></i>
+                                    </span>                    
+                                </div>
+                                <input type="password" class="form-control"  placeholder="Confirm Password"formControlName="confirmPassword">
+                            </div>
+                            <div class="error " *ngIf="resetPassword.get( 'confirmPassword').hasError( 'required') && resetPassword.get( 'confirmPassword').touched ">Confirm Password is required</div>
+                            <div class="error " *ngIf="(resetPassword.get( 'password').value) !==( resetPassword.get( 'confirmPassword').value) && resetPassword.get( 'confirmPassword').dirty ">Password and confirmpassword missmatch</div>
+                        </div>
+                 
+                        <div class="form-group">
+                            <button [disabled]="resetPassword.invalid" (click)="onResetPassword()" class="btn btn-primary btn-lg btn-block login-btn">Reset password</button>
+                        </div>
+                    </form>
+                </div>
+               
+            </div>
+        </div>
+        </div>
+</div>
